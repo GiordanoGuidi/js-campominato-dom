@@ -35,8 +35,8 @@ const formElement = document.querySelector('form')
 const selectElement = document.querySelector('select')
 const button = document.querySelector('button');
 const gridElement = document.querySelector('.grid');
-let rows = 10;
-let cols = 10;
+let rows = 3;
+let cols = 3;
 let totalCell = rows * cols;
 let hasCells = false;
 let scoreElement = document.getElementById('score')
@@ -89,7 +89,7 @@ formElement.addEventListener('submit', function(event){
                 // COLORO LA CELLA DI BLU AL CLICK
                 cellElement.classList.add('clicked');
 
-
+                // DICHIARO CELLA CONTENENTE BOMBA
                 const hasHitBomb = bombs.includes(i);
                 
                 if(hasHitBomb){
@@ -99,9 +99,17 @@ formElement.addEventListener('submit', function(event){
                     console.log('Game Over hai preso una bomba');
                 }else{
                     //AUMENTO IL PUNTEGGIO AL CLICK
-                    score++;
-                    scoreElement.innerText = score++
+                    scoreElement.innerText = ++score
                 }
+
+                //Punteggio PER LA VITTORIA
+                const winner = totalCell - totalBombs;
+                if(score === winner){
+                    console.log('HAI VINTO')
+                }
+
+
+
 
 
                 
@@ -112,7 +120,7 @@ formElement.addEventListener('submit', function(event){
 
         }
 
-        const totalBombs = 16;
+        const totalBombs = 1;
         const bombs =randomNumberGenerator(totalCell,totalBombs);
         console.log('bombe', bombs)
 
