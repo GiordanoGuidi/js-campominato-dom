@@ -29,3 +29,10 @@ Aggiungere una select accanto al bottone di generazione, che fornisca una scelta
 #SUPER BONUS
 Quando l'utente clicca una bomba, scopriamo tutte le caselle del tabellone, colorando di rosso tutte le bombe
 Forza ragazzi!!!!
+
+# Problem breakdow
+1. MILESTONE 1
+- CREO ELEMENTO NEL DOM
+- RECUPERO L'ELEMENTO 
+- CREO VARIABILE PUNTEGGIO
+- INCREMENTO PUNTEGGIO AL CLICK

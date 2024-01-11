@@ -1,5 +1,5 @@
 
-//# FUNZIONI
+//# FUNZIONI ---------------------------------------------
 const cellGenerator = (mode) =>{
     //CREO ELEMENTO CELLA
     const cellElement =document.createElement('div');
@@ -12,8 +12,9 @@ const cellGenerator = (mode) =>{
     }
     return cellElement
 }
+// #-----------------------------------------------------
 
-//# RECUPERO GLI ELEMENTI
+//# RECUPERO GLI ELEMENTI--------------------------------
 const formElement = document.querySelector('form')
 const selectElement = document.querySelector('select')
 const button = document.querySelector('button');
@@ -23,7 +24,12 @@ let cols = 10;
 let totalCell = rows * cols;
 let hasCells = false;
 console.log('celle totali',totalCell)
+let scoreElement = document.getElementById('score')
+let score = 0;
+//#--------------------------------------
 
+
+//! LOGICA DEL GIOCO------------------------------------------
 //CREO EVENT LISTNER SUL BOTTONE
 formElement.addEventListener('submit', function(event){
     event.preventDefault();
@@ -66,7 +72,8 @@ formElement.addEventListener('submit', function(event){
                     //STAMPO IN CONSOLE IL NUMERO DELLA CELLA
                     console.log('sono la cella', i)
                 }else return;
-    
+                //AUMENTO IL PUNTEGGIO AL CLICK
+                score++;
                 // COLORO LA CELLA DI BLU AL CLICK
                 cellElement.classList.add('clicked');
             })
