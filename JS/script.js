@@ -16,18 +16,18 @@ const cellGenerator = (mode) =>{
 // #-----------------------------------------------------
 //# FUNZIONE INTERNE AL GIOCO
         // FUNZIONE PER GENERARE 16 NUMERI RANDOM DIVERSI
-        const randomNumberGenerator = (totalCell,totalNumbers)=>{
-            console.log('massima bomba',totalCell,'numero massimo bombe',totalNumbers)
-            do {
-                let randomNumber = Math.floor(Math.random() * totalCell + 1)
-                console.log(randomNumber);
-                if(!arrayNumbers.includes(randomNumber)){
-                    arrayNumbers.push(randomNumber)
-
+        const randomNumberGenerator = (maxBombNumber, totalBombs)=>{
+            const bombs =[];
+            console.log('massima bomba',totalCell,'numero massimo bombe',totalBombs)
+            while(bombs.length < totalBombs){
+                let randomNumber = Math.floor(Math.random() * maxBombNumber)+1;
+                if(!bombs.includes(randomNumber)){
+                    bombs.push(randomNumber)
                 }
-            } while (arrayNumbers.length < totalNumbers);
-            console.log(arrayNumbers)
+            }
+            return bombs;
         }
+//#------------------------------------------------------------     
 
 //# RECUPERO GLI ELEMENTI--------------------------------
 
@@ -41,7 +41,6 @@ let totalCell = rows * cols;
 let hasCells = false;
 let scoreElement = document.getElementById('score')
 let score = 0;
-const arrayNumbers =[];
 //#--------------------------------------
 
 
@@ -95,8 +94,11 @@ formElement.addEventListener('submit', function(event){
 
         }
 
-        const totalNumbers = 16;
-        randomNumberGenerator(totalCell,totalNumbers);
+        const totalBombs = 16;
+        const bombs =randomNumberGenerator(totalCell,totalBombs);
+        console.log('bombe', bombs)
+
+
         
 
         
