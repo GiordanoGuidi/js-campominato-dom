@@ -1,5 +1,6 @@
 
-//# FUNZIONI ---------------------------------------------
+//# FUNZIONI ESTERNE AL GIOCO ---------------------------------------------
+//FUNZIONE PER GENERARE LA CELLA
 const cellGenerator = (mode) =>{
     //CREO ELEMENTO CELLA
     const cellElement =document.createElement('div');
@@ -13,8 +14,23 @@ const cellGenerator = (mode) =>{
     return cellElement
 }
 // #-----------------------------------------------------
+//# FUNZIONE INTERNE AL GIOCO
+        // FUNZIONE PER GENERARE 16 NUMERI RANDOM DIVERSI
+        const randomNumberGenerator = (totalCell,totalNumbers)=>{
+            console.log('massima bomba',totalCell,'numero massimo bombe',totalNumbers)
+            do {
+                let randomNumber = Math.floor(Math.random() * totalCell + 1)
+                console.log(randomNumber);
+                if(!arrayNumbers.includes(randomNumber)){
+                    arrayNumbers.push(randomNumber)
+
+                }
+            } while (arrayNumbers.length < totalNumbers);
+            console.log(arrayNumbers)
+        }
 
 //# RECUPERO GLI ELEMENTI--------------------------------
+
 const formElement = document.querySelector('form')
 const selectElement = document.querySelector('select')
 const button = document.querySelector('button');
@@ -23,9 +39,9 @@ let rows = 10;
 let cols = 10;
 let totalCell = rows * cols;
 let hasCells = false;
-console.log('celle totali',totalCell)
 let scoreElement = document.getElementById('score')
 let score = 0;
+const arrayNumbers =[];
 //#--------------------------------------
 
 
@@ -35,7 +51,6 @@ formElement.addEventListener('submit', function(event){
     event.preventDefault();
     
     let mode = selectElement.value;
-    console.log(mode);
     // CAMBIO GRANDEZZA GRIGLIA IN BASE ALLA MODALITA' SCELTA
     if(mode === '2'){
         rows = 9;
@@ -77,7 +92,14 @@ formElement.addEventListener('submit', function(event){
                 // COLORO LA CELLA DI BLU AL CLICK
                 cellElement.classList.add('clicked');
             })
+
         }
+
+        const totalNumbers = 16;
+        randomNumberGenerator(totalCell,totalNumbers);
+        
+
+        
     }
 })
 
