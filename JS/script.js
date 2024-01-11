@@ -85,11 +85,27 @@ formElement.addEventListener('submit', function(event){
                 if(!cellElement.classList.contains('clicked')){
                     //STAMPO IN CONSOLE IL NUMERO DELLA CELLA
                     console.log('sono la cella', i)
+
                 }else return;
-                //AUMENTO IL PUNTEGGIO AL CLICK
-                score++;
                 // COLORO LA CELLA DI BLU AL CLICK
                 cellElement.classList.add('clicked');
+
+
+                const hasHitBomb = bombs.includes(i);
+                if(hasHitBomb){
+                    //COLORO LA CELLA DI ROSSO
+                    cellElement.classList.add('bomb');
+
+                    
+                }
+
+                //AUMENTO IL PUNTEGGIO AL CLICK
+                score++;
+
+                
+                console.log('iiiii' ,i)
+
+                
             })
 
         }

@@ -96,8 +96,13 @@ main{
     align-items: center;
 }
 
-.cell.clicked{
+.grid .cell.clicked{
     background-color: blue;
+}
+
+.grid .cell.clicked.bomb{
+    background-color: red;
+
 }
 
 
