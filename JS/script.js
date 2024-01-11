@@ -84,7 +84,6 @@ formElement.addEventListener('submit', function(event){
                 //EVITO CHE LO STAMPI SE GIA E' STATA CLICCATA
                 if(!cellElement.classList.contains('clicked')){
                     //STAMPO IN CONSOLE IL NUMERO DELLA CELLA
-                    console.log('sono la cella', i)
 
                 }else return;
                 // COLORO LA CELLA DI BLU AL CLICK
@@ -92,18 +91,21 @@ formElement.addEventListener('submit', function(event){
 
 
                 const hasHitBomb = bombs.includes(i);
+                
                 if(hasHitBomb){
                     //COLORO LA CELLA DI ROSSO
                     cellElement.classList.add('bomb');
-
-                    
+                    //COMUNICO LA SCONFITTA
+                    console.log('Game Over hai preso una bomba');
+                }else{
+                    //AUMENTO IL PUNTEGGIO AL CLICK
+                    score++;
+                    scoreElement.innerText = score++
                 }
 
-                //AUMENTO IL PUNTEGGIO AL CLICK
-                score++;
 
                 
-                console.log('iiiii' ,i)
+             
 
                 
             })
